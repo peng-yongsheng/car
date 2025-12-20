@@ -1,0 +1,1 @@
+docker run --rm -d -p 6080:80 --shm-size=512m ros:noetic_vnc
