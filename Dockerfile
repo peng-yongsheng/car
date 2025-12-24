@@ -32,6 +32,11 @@ RUN apt install -y ros-noetic-std-msgs
 RUN apt install -y ros-noetic-tf2 ros-noetic-tf2-eigen ros-noetic-tf2-ros
 RUN apt install -y ros-noetic-urdf ros-noetic-visualization-msgs
 RUN apt install -y ros-noetic-rviz
+RUN apt install -y ros-noetic-amcl
+RUN apt install -y ros-noetic-map-server
+RUN apt install -y ros-noetic-move-base
+RUN apt install -y ros-noetic-base-local-planner
+RUN apt install -y ros-noetic-dwa-local-planner
 
 # I had problems when set to localhost, passing devhost IP via 'docker run' command fixes comms
 ENV ROS_MASTER_URI=http://devhost:11311/
@@ -73,3 +78,5 @@ RUN apt-get install -y mesa-utils
 
 # Set the entrypoint to the script
 ENTRYPOINT ["/ros_entrypoint.sh"]
+
+#wget -P ~/ https://storage.googleapis.com/cartographer-public-data/bags/backpack_2d/cartographer_paper_deutsches_museum.bag
